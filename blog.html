@@ -1,63 +1,54 @@
-Test for blogs
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Blog's Name Here - Robotics</title>
+    <title>Welcome to My Blog</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .header { background: #007BFF; color: #ffffff; padding: 20px; text-align: center; }
-        .navigation { background: #f0f0f0; padding: 10px; text-align: center; }
-        .navigation a { margin: 0 10px; text-decoration: none; color: #007BFF; }
-        .main { padding: 20px; }
-        .section { margin-bottom: 20px; }
-        .section-title { color: #007BFF; font-size: 24px; }
-        .post-date { color: #666; font-size: 16px; }
-        .post-content { margin-top: 10px; }
-        .footer { background: #333; color: #ffffff; text-align: center; padding: 10px; }
+        body { font-family: Arial, sans-serif; }
+        .header { text-align: center; margin: 20px; }
+        .main-content { text-align: center; }
+        .category {
+            display: inline-block;
+            margin: 10px;
+            width: 30%; /* Adjust width as necessary */
+        }
+        .category img {
+            width: 100%; /* Make image fill the container */
+            height: auto; /* Keep image aspect ratio */
+        }
+        .footer { text-align: center; margin-top: 20px; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>Welcome to my Blog</h1>
+    <h1>Welcome to My Blog</h1>
 </div>
 
-<div class="navigation">
-    <a href="#robotics">Robotics</a>
-    <a href="#section2">Section 2</a>
-    <a href="#section3">Section 3</a>
-</div>
-
-<div class="main">
-    <div id="robotics" class="section">
-        <h2 class="section-title">Robotics</h2>
-        <!-- Add your robotics posts or content here -->
-        <div class="post-content">
-            <p>This section will cover the latest trends, technologies, and projects in the field of robotics. From educational tutorials to the discussion of cutting-edge robotic innovations, this is your go-to spot for all things robotics.</p>
-        </div>
+<div class="main-content">
+    <div class="category">
+        <a href="https://uthiradotblog.wordpress.com/6-2/">
+            <img src="robotics-image.jpg" alt="Robotics">
+            <p>Robotics</p>
+        </a>
     </div>
-
-    <div id="section2" class="section">
-        <h2 class="section-title">Section 2 Title</h2>
-        <!-- Add your section 2 posts or content here -->
-        <div class="post-content">
-            <p>This is a placeholder for the second main section of your blog. You can edit this to focus on another area of interest related to your blog's theme.</p>
-        </div>
+    <div class="category">
+        <a href="vision.html">
+            <img src="vision-image.jpg" alt="Vision">
+            <p>Vision</p>
+        </a>
     </div>
-
-    <div id="section3" class="section">
-        <h2 class="section-title">Section 3 Title</h2>
-        <!-- Add your section 3 posts or content here -->
-        <div class="post-content">
-            <p>This is a placeholder for the third main section of your blog. Similar to the other sections, you can customize this part to suit the needs and focus of your blog.</p>
-        </div>
+    <div class="category">
+        <a href="genai.html">
+            <img src="genai-image.jpg" alt="GenAI">
+            <p>GenAI</p>
+        </a>
     </div>
 </div>
 
 <div class="footer">
-    <p>Copyright &copy; 2024 Your Blog. All rights reserved.</p>
+    <p>© 2024 My Blog. All rights reserved.</p>
 </div>
 
 </body>
