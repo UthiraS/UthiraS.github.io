@@ -13,6 +13,39 @@
             display: flex; /* Use flexbox to create a row */
             justify-content: space-between; /* Space images evenly */
         }
+        .major { margin-bottom: 0; }
+        .skill {
+            margin-bottom: 5px;
+            position: relative;
+            background-color: #f1f1f1;
+        }
+        .skill-value {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+        }
+        .icon {
+            font-size: 24px; /* Change size as needed */
+            margin-right: 10px;
+        }
+        .column {
+            float: left;
+            width: 25%; /* Adjust the width for the number of columns you want */
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .skill-container {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -71,7 +104,7 @@
         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 				 <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
+            <!-- <td style="padding:20px;width:100%;vertical-align:middle">
               <h1>Topics of Interest</h1>
               <p>
                  Reinforcement Learning, Imitation Learning,  Human Robot Interaction, Manipulation, Motion Planning, Serial Manipulators, Object Detection and Collision Avoidance, SLAM, NeRF, Depth and Pose Estimation, Sequence Prediction
@@ -128,7 +161,37 @@
                   
                 </p>
                 </div>									
-                </div>						
+                </div>						 -->
+                <div style="width:100%;text-align:center;">
+                  <h1>Topics of Interest</h1>
+                  <p>
+                     Reinforcement Learning, Imitation Learning, Human Robot Interaction, Manipulation, Motion Planning, Serial Manipulators, Object Detection and Collision Avoidance, SLAM, NeRF, Depth and Pose Estimation, Sequence Prediction
+                  </p>
+                  <div class="row">
+                      <div class="column">
+                          <h1>Programming</h1>
+                          <div class="skill-container">
+                              <i class="icon">🐍</i>Python
+                              <div class="skill">
+                                  <div class="skill-value" style="width: 90%;">90%</div>
+                              </div>
+                          </div>
+                          <!-- Repeat for each skill with appropriate icon and percentage -->
+                      </div>
+                      <div class="column">
+                          <h1>Deeplearning Frameworks</h1>
+                          <!-- Skill bars here -->
+                      </div>
+                      <div class="column">
+                          <h1>Robotics</h1>
+                          <!-- Skill bars here -->
+                      </div>
+                      <div class="column">
+                          <h1>Hardware</h1>
+                          <!-- Skill bars here -->
+                      </div>
+                  </div>
+              </div>
             </td>
           </tr>
         </tbody></table>
