@@ -163,31 +163,44 @@
                 </div>									
                 </div>						 -->
                 <div style="width:100%;text-align:center;">
-                  <h1>Topics of Interest</h1>
+                  <h1>Areas of Interest</h1>
                   <p>
-                     Reinforcement Learning, Imitation Learning, Human Robot Interaction, Manipulation, Motion Planning, Serial Manipulators, Object Detection and Collision Avoidance, SLAM, NeRF, Depth and Pose Estimation, Sequence Prediction
+                     Reinforcement Learning,  Serial Manipulators, Motion Planning and Collision Avoidance, Perception, Deep Learning, Natural Language Processing
                   </p>
+                  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                  <style>
+                      .skill-container { position: relative; margin-bottom: 10px; }
+                      .skill-bar { width: 0; height: 20px; background-color: #4CAF50; }
+                      .skill-percent { text-align: center; color: white; }
+                  </style>
                   <div class="row">
                       <div class="column">
                           <h1>Programming</h1>
-                          <div class="skill-container">
-                              <i class="icon">🐍</i>Python
-                              <div class="skill">
-                                  <div class="skill-value" style="width: 90%;">90%</div>
-                              </div>
-                          </div>
+                          <p>Python, Modern C++, Linux(Ubuntu), Bash/Shell Scripting, Version control with Git, GDB</p>
                           <!-- Repeat for each skill with appropriate icon and percentage -->
                       </div>
                       <div class="column">
-                          <h1>Deeplearning Frameworks</h1>
+                          <h1>Deeplearning</h1>
+                          <p>PyTorch, TensorFlow, Keras, CUDA, Cluster, Jupyter Notebook</p>
                           <!-- Skill bars here -->
                       </div>
+                      <div class="column">
+                        <h1>Machine-learning Architecture</h1>
+                        <p>CNN, RNN, LSTM, UNet, Transformers, ResNet-34, DenseNet, ResNeXt, BERT</p>
+                        <!-- Skill bars here -->
+                    </div>
+                      <div class="column">
+                        <h1>Vision</h1>
+                        <p>OpenCV, PCL, Blender, Rviz</p>
+                    </div>
                       <div class="column">
                           <h1>Robotics</h1>
-                          <!-- Skill bars here -->
+                          <p>Gazebo, Robot Operating System 1/2, Vrep, OpenAI Gym</p>
                       </div>
-                      <div class="column">
+
+                    <div class="column">
                           <h1>Hardware</h1>
+                          <p>UR5e, KUKA KR6R700-2, Franka Emika Panda, Intel RealSense D435i</p>
                           <!-- Skill bars here -->
                       </div>
                   </div>
@@ -581,5 +594,24 @@
     </tr>
   </table>
 </body>
+<script>
+  // Function to toggle the display of experience text
+  function toggleExperience(expId) {
+      var exp = document.getElementById(expId);
+      var display = exp.style.display;
+      exp.style.display = display === 'block' ? 'none' : 'block';
+  }
 
+  // Optional: Animate the skill bars on page load
+  window.onload = function() {
+      var bars = document.querySelectorAll('.skill-bar');
+      bars.forEach(function(bar) {
+          var width = bar.style.width;
+          bar.style.width = '0';
+          setTimeout(function() {
+              bar.style.width = width;
+          }, 500);
+      });
+  };
+</script>
 </html>
