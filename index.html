@@ -103,25 +103,14 @@
             </tr>
           </table>
 
-          <tr onmouseout="smerf_stop()" onmouseover="smerf_start()">
+          <tr onmouseout="malle_stop()" onmouseover="malle_start()" >
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
-                <div class="two" id='smerf_image'><video  width=100% muted autoplay loop>
-                <source src="images/smerf.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-                </video></div>
-                <img src='images/us_capture.png' width=100%>
+                <div class="two" id='malle_image'>
+                  <img src='images/2D.png' width="120"></div>
+                <!-- <img src='images/MalleConv_before.jpg' width="160"> -->
               </div>
-              <script type="text/javascript">
-                function smerf_start() {
-                  document.getElementById('smerf_image').style.opacity = "1";
-                }
-      
-                function smerf_stop() {
-                  document.getElementById('smerf_image').style.opacity = "0";
-                }
-                smerf_stop()
-              </script>
+              
             </td>
             <td style="padding:20px;width:75%;vertical-align:middle">
       
