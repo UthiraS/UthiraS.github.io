@@ -1,480 +1,903 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uthiralakshmi Sivaraman</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      /* Font imports */
-      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
-
-/* General styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Open Sans', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Roboto', Helvetica, sans-serif;
+        
+        .nav-logo {
+            font-size: 1.5rem;
             font-weight: 700;
-        }
-
-        /* Header styles */
-        h1 {
-            font-size: 2.5em;
-            color: #2c3e50;
-        }
-
-        /* Navigation links */
-        nav a {
-            font-family: 'Roboto', Helvetica, sans-serif;
-            font-weight: 400;
+            color: var(--primary-color);
             text-decoration: none;
-            color: #3498db;
-        }
-
-        /* Section headers */
-        h2 {
-            font-size: 1.8em;
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-        }
-
-        /* Paragraph text */
-        p {
-            font-size: 1em;
-            line-height: 1.6;
         }
         
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .profile-container {
+        .nav-links {
             display: flex;
             gap: 2rem;
-            margin-bottom: 2rem;
-            align-items: flex-start;
         }
         
-        .profile-image {
-            width: 300px;
-            height: auto;
-            border-radius: 8px;
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
         }
         
-        .profile-info {
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 6rem auto 2rem;
+            padding: 0 2rem;
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            min-height: calc(100vh - 6rem);
+            padding: 2rem 0;
+        }
+        
+        .hero-content {
             flex: 1;
         }
         
-        .section {
-            margin-bottom: 3rem;
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
-        .section-title {
-            border-bottom: 2px solid #2c5282;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            color: #2c5282;
-        }
-        
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .experience-item {
-            text-align: center;
-            padding: 0.5rem;
-            background: #f7fafc;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .experience-item img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
+        .hero-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
         
-        .project-card {
-            display: flex;
-            gap: 1.5rem;
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-description {
             margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: #f7fafc;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .project-image {
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        
-        .project-info {
-            flex: 1;
+            font-size: 1.1rem;
+            color: var(--text-color);
         }
         
         .social-links {
             display: flex;
-            justify-content: center;
             gap: 1.5rem;
-            margin-top: 1rem;
         }
         
         .social-links a {
-            color: #2c5282;
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         .social-links a:hover {
-            text-decoration: underline;
+            color: var(--secondary-color);
+            transform: translateY(-2px);
         }
         
-        .highlight {
-            color: #2c5282;
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 5rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .category-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-tab {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid var(--secondary-color);
+            border-radius: 4px;
+            cursor: pointer;
+            color: var(--secondary-color);
             font-weight: 500;
+            transition: all 0.3s;
         }
         
-        a {
-            color: #2c5282;
-            text-decoration: none;
+        .category-tab.active {
+            background: var(--secondary-color);
+            color: white;
         }
         
-        a:hover {
-            text-decoration: underline;
+        .category-tab:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .project-card::after {
+            content: '→ View on GitHub';
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+            padding-bottom: 3rem;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-description {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-color);
         }
         
         .project-links {
-            margin-top: 0.5rem;
+            position: absolute;
+            left: 1.5rem;
+            bottom: 1rem;
+            display: flex;
+            gap: 1rem;
         }
         
-        .volunteer-section {
-            margin-top: 2rem;
+        .project-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .project-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .experience-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .experience-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            padding: 1rem;
+            background: #f8fafc;
+        }
+        
+        .experience-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .experience-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-company {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-date {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
         @media (max-width: 768px) {
-            .profile-container {
-                flex-direction: column;
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2rem;
+                min-height: auto;
             }
             
-            .profile-image {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
+            .social-links {
+                justify-content: center;
             }
             
-            .project-card {
-                flex-direction: column;
-            }
-            
-            .project-image {
-                width: 100%;
+            .hero-image {
+                width: 200px;
                 height: 200px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .project-card::after {
+                opacity: 1;
+                transform: translateX(0);
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Uthiralakshmi Sivaraman</h1>
-        <div class="social-links">
-            <a href="mailto:usivaraman@wpi.edu">Email</a>
-            <a href="https://www.linkedin.com/in/uthiralakshmis/">LinkedIn</a>
-            <a href="https://github.com/UthiraS">GitHub</a>
-            <a href="blog.html">Blog</a>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="nav-logo">US</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#volunteer">Volunteer</a>
+                <a href="/home/uthira/Documents/UthiraS.github.io/blog.html">Blog</a>
+            </div>
         </div>
-    </div>
+    </nav>
 
-    <div class="profile-container">
-        <div class="profile-info">
-            <p>Recent Robotics Engineering Graduate from <a href="https://www.wpi.edu/">Worcester Polytechnic Institute</a></p>
-            <p>Currently, I am a Robotics Software Intern at <a href="https://www.voidrobotics.com/">Void Robotics</a></p>
-            <p>During my masters, I worked on <a href="https://wp.wpi.edu/merlab/active-vision-for-manipulation/">"Optimizing Active Vision-Based Policy for Robotic Grasping"</a> under Prof. <a href="https://www.wpi.edu/people/faculty/bcalli">Berk Calli</a> at <a href="https://wp.wpi.edu/merlab/">Manipulation & Environmental Robotics Lab</a></p>
-            <p>Previously worked as Project Associate at <a href="https://www.hticiitm.org/">Healthcare Technology Innovation Center, IIT Madras Research Park</a>, working on Software Development, Testing of Motion Planning for Spine Surgery Robot Phase 1</p>
-            <p>Research Intern at <a href="https://www.lincoln.ac.uk">University of Lincoln</a> under Prof. <a href="https://alr.anthropomatik.kit.edu/21_65.php">Gerhad Neumann</a> working on robot simulation and deep learning based vision algorithms</p>
-            <p class="highlight">Currently seeking Full-Time roles in Computer Vision, Robotics, Machine Learning, and AI</p>
-        </div>
-        <img src="images/DSC01776.JPG" alt="Profile Photo" class="profile-image">
-    </div>
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Uthiralakshmi Sivaraman</h1>
+                <h2 class="hero-subtitle">Robotics Software Engineer</h2>
+                <p class="hero-description">
+                    Recent Robotics Engineering Graduate from Worcester Polytechnic Institute, currently working as a Robotics Software Intern at Void Robotics. Specialized in Computer Vision, Robotics, Machine Learning, and AI.
+                </p>
+                <div class="social-links">
+                    <a href="mailto:usivaraman@wpi.edu">Email</a>
+                    <a href="https://www.linkedin.com/in/uthiralakshmis/">LinkedIn</a>
+                    <a href="https://github.com/UthiraS">GitHub</a>
+                    <a href="https://leetcode.com/u/Uthiralakshmi/">Leetcode</a>
+                </div>
+            </div>
+            <img src="images/DSC01776.JPG" alt="Profile Photo" class="hero-image">
+        </section>
 
-    <div class="section">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-grid">
-            <div class="experience-item">
-                <img src="images/void_robotics_logo.jpeg" alt="Void Robotics">
-                <h3>Robotics Software Intern</h3>
-                <p>Void Robotics, WPI</p>
-                <p>July 2024 - Present</p>
-            </div>
-            <div class="experience-item">
-                <img src="images/MER.png" alt="MER Lab">
-                <h3>Graduate Robotics Researcher</h3>
-                <p>MER Laboratory, WPI</p>
-                <p>May 2023 - Apr 2024</p>
-            </div>
-            <div class="experience-item">
-                <img src="images/htic.webp" alt="HTIC">
-                <h3>Robotics Software Engineer</h3>
-                <p>Healthcare Technology Innovation Center</p>
-                <p>Nov 2020 - Apr 2022</p>
-            </div>
-            <div class="experience-item">
-                <img src="images/rajasri_systems_private_limited_cover.jpeg" alt="Rajasri Systems">
-                <h3>Software Developer</h3>
-                <p>Rajasri Systems Pvt. Ltd.</p>
-                <p>Dec 2019 - Apr 2020</p>
-            </div>
-            <div class="experience-item">
-                <img src="images/Lincoln.jpg" alt="University of Lincoln">
-                <h3>Robotics Software Intern</h3>
-                <p>University of Lincoln, UK</p>
-                <p>Jan 2019 - June 2019</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Highlighted Projects</h2>
-        <div class="project-card">
-            <img src="images/Features.png" alt="Masters Capstone" class="project-image">
-            <div class="project-info">
-                <h3> Imitation learning guided Active Vision Robotic Grasping</h3>
-                <p>Advanced camera viewpoint automation on Franka Emika Panda robot through dataset aggregation and epsilon-optimal imitation learning policy evaluation</p>
-                <p>Focused on rapid 3D object recognition using RGB-D Point Cloud descriptors from Intel RealSense data</p>                
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/ImitationLearning_Franka">GitHub</a> | 
-                    <a href="docs/Usivaraman_Capstone_Project_Report.pdf">Project Report</a> | 
-                    <a href="docs/Capstone_USivaraman.pdf">Presentation</a>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <img src="images/SSR_1.jpeg" alt="SCARA Robot" class="project-image">
-            <div class="project-info">
-                <h3>Motion Planning for Open and MIS Spine Surgery Robot</h3>
-                <p>Implemented and tested a 3D geometry based motion planner with collision avoidance in python for MIS and Open Pedicle Screw insertion Spine Surgery.</p>
-                <div class="project-links">
-                    
-                    <a href="https://github.com/UthiraS/Motion-Planning--Spine-Surgery-Robot">GitHub</a> |
-                    <a href="docs/SSR_KUKA_motionplanner.pdf">Project Report</a>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <img src="images/Franka_ObjectManipulation.png" alt="Bachelors Capstone" class="project-image">
-            <div class="project-info">
-                <h3>Predicting Object Dynamics From Image Sequences</h3>
-                <p>Leveraged machine learning techniques to predict subsequent sequences of block pose while manipulating Objects.</p>                
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/ObjectDynamics_Simulation">GitHub</a> | 
-                    <a href="docs/SAP PROJECT THESIS.pdf">Project Report</a> | 
-                    <a href="docs/Presentation Final.pdf">Presentation</a> |
-                    <a href="images/UR5.mp4">Demo Video</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Computer Vision Projects</h2>
-        <div class="project-card">
-            <img src="images/vis-pallet.png" alt="Pallet Detection" class="project-image">
-            <div class="project-info">
-                <h3>Pallet Detection and Segmentation System</h3>
-                <p>Created and annotated a dataset of 519 images using Roboflow's pretrained models and SAM2 by Meta Research for high-quality segmentation masks</p>
-                <p>Developed an object detection and segmentation pipeline using YOLOv11, achieving 0.59 mAP@50 for detection and 0.95 maxIoU for segmentation</p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/pallet_vision">GitHub</a> |
-                    <a href="docs/Palletize_Vision_System.pdf">Project Report</a>
-                </div>
-            </div>
-         </div>
-        <div class="project-card">
-            <img src="images/2D.png" alt="SFM Project" class="project-image">
-            <div class="project-info">
-                <h3>Classical Structure from Motion</h3>
-                <p>Reconstructed 3D building structure from multiple views using epipolar geometry</p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/SFM_NERF">GitHub</a> |
-                    <a href="docs/Report_SFM_NERF.pdf">Project Report</a>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="project-card">
-            <img src="images/nerf.png" alt="NERF Project" class="project-image">
-            <div class="project-info">
-                <h3>3D View Synthesis using NeRF </h3>
-                <p>Implemented Neural Radiance Fields for novel view synthesis of realistic 3D scenes</p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/SFM_NERF">GitHub</a> |
-                    <a href="docs/Report_SFM_NERF.pdf">Project Report</a>
-                </div>
-            </div>
-        </div> -->
-        <div class="project-card">
-            <img src="images/AutoCalib.png" alt="Camera Calibration" class="project-image">
-            <div class="project-info">
-                <h3>Camera Calibration</h3>
-                <p>Calibrated Camera by estimating camera intrinsic and extrinsic parameters and modeling the distortion caused in images using a radial-tangential model based on Zhang's Camera Calibration paper</p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/RBE549_AutoCalib">GitHub</a> |
-                    <a href="docs/Report_AutoCalib.pdf">Project Report</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <img src="images/PbLite.png" alt="Edge Detection" class="project-image">
-            <div class="project-info">
-                <h3>Probability Based Edge Detection & CIFAR10 Classification</h3>
-                <p>Implemented probability-based edge detection by calculating Texture, Brightness and Color Map gradients, comparing with Sobel and Canny baselines</p>
-                <p>Compared multiple deep learning architectures for object classification using CIFAR10 BSDS500 dataset</p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/RBE549_Alohomora">GitHub</a> |
-                    <a href="docs/Report_Alohomora.pdf">Project Report</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <img src="images/Panaroma.png" alt="Panorama Stitching" class="project-image">
-            <div class="project-info">
-                <h3>Panorama Image Stitching</h3>
-                <p>Implemented traditional approach to find homography matrix between image pairs</p>
-                <p>Developed supervised and unsupervised deep learning approaches for estimating homography between synthetically generated data</p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/RBE549_AutoPano">GitHub</a> |
-                    <a href="docs/Report_AutoPano.pdf">Project Report</a>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <img src="images/teslavision.png" alt="Perception_stack" class="project-image">
-            <div class="project-info">
-                <h3>Perception Stack for Autonomous Vehicles</h3>
-                <p>Created a complete mockup of the Perception stack for a Self driving car from detection to 3D visualization aspect.</p>               
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/Perception_Stack_Autonomous_Vehicles">GitHub</a>                 
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <img src="images/HRI.png" alt="semanticsegmentation_gazetracking" class="project-image">
-            <div class="project-info">
-                <h3>DVRK camera automation using Gaze Tracking and ROI segmentation</h3>
-                <p> Utilized Gaze Tracking to automate DVRK in unity and semantic segmentation using UNET++ to segment and track Region of interest in sugery.</p>               
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/SemanticSegmentation_GazeTracking_DVRK">GitHub</a>                 
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="section">
-        <h2 class="section-title">Reinforcement Learning Projects</h2>
-        <div class="project-card">
-            <img src="images/rl.png" alt="dqnrl" class="project-image">
-            <div class="project-info">
-                <h3>Deep Reinforcement Learning for Atari Breakout game from Open Gym AI</h3>
-                <p>Compared various Deep Q learning (Double DQN and Dueliing DQN) for playing Atari Breakout game from Open Gym AI </p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/AIAgentplaying_ATARI">GitHub</a>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <img src="images/control.jpg" alt="motionplanningrl" class="project-image">
-            <div class="project-info">
-                <h3>Deep Reinforcement learning based Continuous Control of Mobile Robot Navigation</h3>
-                <p>Compared deep reinforcement learning methods based on policy gradients (Deep Deterministic Policy Gradient
-                    and Soft Actor Critic) for implementing a learning-based mapless motion planning task of Turtlebot3 robot navigation.</p>
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <p>During my masters, I worked on "Optimizing Active Vision-Based Policy for Robotic Grasping" under Prof. Berk Calli at Manipulation & Environmental Robotics Lab. Previously worked as Project Associate at Healthcare Technology Innovation Center, IIT Madras Research Park, working on Software Development, Testing of Motion Planning for Spine Surgery Robot Phase 1.</p>
+            <p>Research Intern at University of Lincoln under Prof. Gerhad Neumann working on robot simulation and deep learning based vision algorithms.</p>
+        </section>
+        <section id="skills" class="section">
+            <h2 class="section-title">Skills</h2>
+            
+            <section id="skills" class="section">
+                <h2 class="section-title">Technical Skills</h2>
                 
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/CS595-Cotinuous-Control-of-Mobile-Robot-Navigation">GitHub</a>
+                <div class="skills-container">
+                    <div class="skills-category">
+                        <h3 class="skills-category-title">Programming</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Python</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Modern C++</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Linux/Bash</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Git Version Control</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>MATLAB</span>
+                                <span>35%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Docker</span>
+                                <span>25%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="skills-category">
+                        <h3 class="skills-category-title">Deep Learning & Vision</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>PyTorch</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>TensorFlow</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>CUDA</span>
+                                <span>40%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>OpenCV</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>PCL</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Blender</span>
+                                <span>35%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="skills-category">
+                        <h3 class="skills-category-title">Robotics</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>ROS1/ROS2</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Gazebo</span>
+                                <span>55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>V-REP</span>
+                                <span>55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>OpenAI Gym</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Rviz</span>
+                                <span>55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+           
+                        
                 </div>
-            </div>
-        </div>
+            </section>
         
+        <!-- Add these styles to your existing stylesheet -->
+        <style>
+            .skills-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
         
-    </div>
-    <div class="section">
-        <h2 class="section-title">Robotics Projects</h2>
-        <div class="project-card">
-            <img src="images/RRP.png" alt="SCARA Robot" class="project-image">
-            <div class="project-info">
-                <h3>SCARA Robot Simulation</h3>
-                <p>Implemented forward/inverse kinematics and controllers for SCARA (RRP) robot in ROS2/Gazebo</p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/SCARA_ROBOT">GitHub</a>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <img src="images/control.jpg" alt="Trajectory Control" class="project-image">
-            <div class="project-info">
-                <h3>Robust Trajectory Tracking Control</h3>
-                <p>Designed boundary layer-based sliding mode controller for quad-rotor trajectory tracking</p>
-                <p>Implemented and tested control system on Crazyflie 2.0 MAV</p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/Robust-Trajectory-Tracking-Control">GitHub</a>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <img src="images/Dynamics.JPG" alt="SCARA Robot" class="project-image">
-            <div class="project-info">
-                <h3>Robot Dynamics GUI Simulator</h3>
-                <p>Implemented the Robot-Dynamics-Simulator, a tool for simulating robot dynamics through a graphical user interface (GUI) using MATLAB. </p>
-                <div class="project-links">
-                    <a href="https://github.com/UthiraS/Robot-Dynamics-Simulator">GitHub</a>
-                </div>
-            </div>
-        </div>
+            .skills-category {
+                background: white;
+                padding: 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
         
-    </div>
+            .skills-category-title {
+                color: var(--primary-color);
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 2px solid var(--secondary-color);
+            }
+        
+            .skill-item {
+                margin-bottom: 1.5rem;
+            }
+        
+            .skill-info {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.5rem;
+                font-weight: 500;
+            }
+        
+            .skill-bar {
+                height: 8px;
+                background: #e2e8f0;
+                border-radius: 4px;
+                overflow: hidden;
+            }
+        
+            .skill-progress {
+                height: 100%;
+                background: var(--secondary-color);
+                border-radius: 4px;
+                transition: width 1.5s ease-in-out;
+                width: 0;
+            }
+        
+            @keyframes slideIn {
+                from {
+                    transform: translateX(-100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        
+            .skills-category {
+                animation: slideIn 0.6s ease-out forwards;
+            }
+        
+            .skills-category:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+        
+            .skills-category:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+        
+            @media (max-width: 768px) {
+                .skills-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+        
+        <!-- Add this script at the end of your body tag -->
+        <script>
+            // Previous scripts remain the same
+        
+            // Animate skill bars when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.dataset.width;
+                    }
+                });
+            }, { threshold: 0.5 });
+        
+            // When the page loads
+            window.addEventListener('DOMContentLoaded', () => {
+                // Get all skill progress bars
+                const skillBars = document.querySelectorAll('.skill-progress');
+                
+                // Set initial width from style attribute and store it
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.dataset.width = width;
+                    bar.style.width = '0';
+                    observer.observe(bar);
+                });
+            });
+        </script>
+        <section id="experience" class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="project-grid">
+                <div class="experience-card">
+                    <img src="images/void_robotics_logo.jpeg" alt="Void Robotics" class="experience-image">
+                    <div class="experience-content">
+                        <div>
+                            <h3 class="experience-title">Robotics Software Intern</h3>
+                            <p class="experience-company">Void Robotics, WPI</p>
+                            <p class="experience-date">July 2024 - Present</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="images/MER.png" alt="MER Lab" class="experience-image">
+                    <div class="experience-content">
+                        <div>
+                            <h3 class="experience-title">Graduate Robotics Researcher</h3>
+                            <p class="experience-company">MER Laboratory, WPI</p>
+                            <p class="experience-date">May 2023 - Apr 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="images/htic.webp" alt="HTIC" class="experience-image">
+                    <div class="experience-content">
+                        <div>
+                            <h3 class="experience-title">Robotics Software Engineer</h3>
+                            <p class="experience-company">Healthcare Technology Innovation Center</p>
+                            <p class="experience-date">Nov 2020 - Apr 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="images/rajasri_systems_private_limited_cover.jpeg" alt="Rajasri Systems" class="experience-image">
+                    <div class="experience-content">
+                        <div>
+                            <h3 class="experience-title">Software Developer</h3>
+                            <p class="experience-company">Rajasri Systems Pvt. Ltd.</p>
+                            <p class="experience-date">Dec 2019 - Apr 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="images/Lincoln.jpg" alt="University of Lincoln" class="experience-image">
+                    <div class="experience-content">
+                        <div>
+                            <h3 class="experience-title">Robotics Software Intern</h3>
+                            <p class="experience-company">University of Lincoln, UK</p>
+                            <p class="experience-date">Jan 2019 - June 2019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="section">
-        <h2 class="section-title">Volunteer Experience</h2>
-        <div class="experience-grid">
-            <div class="experience-item">
-                <img src="images/NSS.png" alt="NSS">
-                <h3>Volunteer</h3>
-                <p>National Service Scheme</p>
-                <p>June 2015 - May 2018</p>
+        <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All</button>
+                <button class="category-tab" data-category="vision">Computer Vision</button>
+                <button class="category-tab" data-category="robotics">Robotics</button>
+                <button class="category-tab" data-category="rl">Reinforcement Learning</button>
             </div>
-            <div class="experience-item">
-                <img src="images/ieee.jpeg" alt="IEEE">
-                <h3>Events Head/Treasurer</h3>
-                <p>IEEE SASTRA SB</p>
-                <p>Dec 2016 - Dec 2018</p>
-            </div>
-            <div class="experience-item">
-                <img src="images/sastra.png" alt="SASTRA">
-                <h3>Street Play Team Leader</h3>
-                <p>Tamil Literary Association, SASTRA</p>
-                <p>Jul 2015 - Jun 2018</p>
-            </div>
-        </div>
-    </div>
+            
+            <div class="project-grid" id="projects-grid">
+                <!-- Computer Vision Projects -->
+                <div class="project-card" data-category="vision" onclick="window.location.href='https://github.com/UthiraS/pallet_vision'">
+                    <img src="images/vis-pallet.png" alt="Pallet Detection" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Pallet Detection System</h3>
+                        <p class="project-description">Created and annotated a dataset using Roboflow's pretrained models and SAM2 by Meta Research for segmentation.</p>
+                        <div class="project-links">
+                            <a href="docs/Palletize_Vision_System.pdf" onclick="event.stopPropagation()">Report</a>
+                        </div>
+                    </div>
+                </div>
 
-    <footer>
-        <p style="text-align: right; font-size: 12px;">
-            <a href="https://jonbarron.info/">Template Credits</a>
-        </p>
-    </footer>
+                <div class="project-card" data-category="vision" onclick="window.location.href='https://github.com/UthiraS/SFM_NERF'">
+                    <img src="images/2D.png" alt="SFM Project" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Classical Structure from Motion</h3>
+                        <p class="project-description">Reconstructed 3D building structure from multiple views using epipolar geometry.</p>
+                        <div class="project-links">
+                            <a href="docs/Report_SFM_NERF.pdf" onclick="event.stopPropagation()">Report</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="vision" onclick="window.location.href='https://github.com/UthiraS/RBE549_AutoCalib'">
+                    <img src="images/AutoCalib.png" alt="Camera Calibration" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Camera Calibration</h3>
+                        <p class="project-description">Calibrated Camera using Zhang's method and modeled radial-tangential distortion.</p>
+                        <div class="project-links">
+                            <a href="docs/Report_AutoCalib.pdf" onclick="event.stopPropagation()">Report</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="vision" onclick="window.location.href='https://github.com/UthiraS/RBE549_Alohomora'">
+                    <img src="images/PbLite.png" alt="Edge Detection" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Probability Based Edge Detection</h3>
+                        <p class="project-description">Implemented edge detection using texture, brightness and color map gradients.</p>
+                        <div class="project-links">
+                            <a href="docs/Report_Alohomora.pdf" onclick="event.stopPropagation()">Report</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="vision" onclick="window.location.href='https://github.com/UthiraS/Perception_Stack_Autonomous_Vehicles'">
+                    <img src="images/teslavision.png" alt="Perception Stack" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Perception Stack for Autonomous Vehicles</h3>
+                        <p class="project-description">Created a complete mockup of the Perception stack for Self driving cars.</p>
+                    </div>
+                </div>
+
+                <!-- Robotics Projects -->
+                <div class="project-card" data-category="robotics" onclick="window.location.href='https://github.com/UthiraS/ImitationLearning_Franka'">
+                    <img src="images/Features.png" alt="Masters Capstone" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Imitation Learning Guided Active Vision Robotic Grasping</h3>
+                        <p class="project-description">Advanced camera viewpoint automation on Franka Emika Panda robot.</p>
+                        <div class="project-links">
+                            <a href="docs/Usivaraman_Capstone_Project_Report.pdf" onclick="event.stopPropagation()">Report</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="robotics" onclick="window.location.href='https://github.com/UthiraS/Motion-Planning--Spine-Surgery-Robot'">
+                    <img src="images/SSR_1.jpeg" alt="Spine Surgery Robot" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Motion Planning for Spine Surgery Robot</h3>
+                        <p class="project-description">Developed motion planner for MIS and Open Pedicle Screw insertion.</p>
+                        <div class="project-links">
+                            <a href="docs/SSR_KUKA_motionplanner.pdf" onclick="event.stopPropagation()">Report</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="robotics" onclick="window.location.href='https://github.com/UthiraS/SCARA_ROBOT'">
+                    <img src="images/RRP.png" alt="SCARA Robot" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">SCARA Robot Simulation</h3>
+                        <p class="project-description">Implemented forward/inverse kinematics and controllers for SCARA robot in ROS2/Gazebo.</p>
+                    </div>
+                </div>
+
+                <!-- Reinforcement Learning Projects -->
+                <div class="project-card" data-category="rl" onclick="window.location.href='https://github.com/UthiraS/AIAgentplaying_ATARI'">
+                    <img src="images/rl.png" alt="DQN RL" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Deep RL for Atari Breakout</h3>
+                        <p class="project-description">Implemented and compared various Deep Q learning approaches for Atari games.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="rl" onclick="window.location.href='https://github.com/UthiraS/CS595-Cotinuous-Control-of-Mobile-Robot-Navigation'">
+                    <img src="images/control.jpg" alt="Motion Planning RL" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">RL-based Mobile Robot Navigation</h3>
+                        <p class="project-description">Implemented DDPG and SAC for mapless motion planning of Turtlebot3.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="volunteer" class="section">
+            <h2 class="section-title">Volunteer Experience</h2>
+            <div class="project-grid">
+                <div class="experience-card">
+                    <img src="images/NSS.png" alt="NSS" class="experience-image">
+                    <div class="experience-content">
+                        <div>
+                            <h3 class="experience-title">Volunteer</h3>
+                            <p class="experience-company">National Service Scheme</p>
+                            <p class="experience-date">June 2015 - May 2018</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="images/ieee.jpeg" alt="IEEE" class="experience-image">
+                    <div class="experience-content">
+                        <div>
+                            <h3 class="experience-title">Events Head/Treasurer</h3>
+                            <p class="experience-company">IEEE SASTRA SB</p>
+                            <p class="experience-date">Dec 2016 - Dec 2018</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="images/sastra.png" alt="SASTRA" class="experience-image">
+                    <div class="experience-content">
+                        <div>
+                            <h3 class="experience-title">Street Play Team Leader</h3>
+                            <p class="experience-company">Tamil Literary Association, SASTRA</p>
+                            <p class="experience-date">Jul 2015 - Jun 2018</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Project filtering functionality
+        const tabs = document.querySelectorAll('.category-tab');
+        const projects = document.querySelectorAll('.project-card');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Filter projects
+                const category = tab.dataset.category;
+                projects.forEach(project => {
+                    if (category === 'all' || project.dataset.category === category) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
 </body>
 </html>
