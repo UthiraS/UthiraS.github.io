@@ -370,17 +370,80 @@
             </div>
             <img src="images/DSC01776.JPG" alt="Profile Photo" class="hero-image">
         </section>
-
         <section id="about" class="section">
             <h2 class="section-title">About Me</h2>
-            <p>During my masters, I worked on "Optimizing Active Vision-Based Policy for Robotic Grasping" under Prof. Berk Calli at Manipulation & Environmental Robotics Lab. Previously worked as Project Associate at Healthcare Technology Innovation Center, IIT Madras Research Park, working on Software Development, Testing of Motion Planning for Spine Surgery Robot Phase 1.</p>
-            <p>Research Intern at University of Lincoln under Prof. Gerhad Neumann working on robot simulation and deep learning based vision algorithms.</p>
+            
+            <div class="about-content">
+                <div class="intro-line">👋 Hello! I'm Uthiralakshmi Sivaraman</div>
+                
+                <p class="about-paragraph">
+                    I'm a Robotics Engineering graduate from Worcester Polytechnic Institute. At the <a href="https://wp.wpi.edu/merlab/" class="lab-link">Manipulation & Environmental Robotics Lab</a>, I worked on camera automation for robotic grasping, using machine learning to improve how robots see and interact with objects.
+                </p>
+                
+                <p class="about-paragraph">
+                    Previously, at IIT Madras's Healthcare Technology Innovation Center, I developed motion planning software for a surgical robot. I've also interned at the University of Lincoln, UK, where I combined robot simulation with deep learning.
+                </p>
+        
+                <p class="about-paragraph highlight-text">
+                    I'm passionate about robotics, computer vision, and AI, and I'm currently seeking full-time opportunities in these fields.
+                </p>
+            </div>
+        
+            <style>
+                .about-content {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding: 1rem 0;
+                }
+        
+                .intro-line {
+                    font-size: 1.3rem;
+                    color: var(--primary-color);
+                    margin-bottom: 1.5rem;
+                    font-weight: 500;
+                }
+        
+                .about-paragraph {
+                    font-size: 1.1rem;
+                    line-height: 1.8;
+                    margin-bottom: 1.5rem;
+                    color: var(--text-color);
+                }
+        
+                .highlight-text {
+                    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    color: transparent;
+                    font-weight: 500;
+                }
+        
+                .lab-link {
+                    color: var(--secondary-color);
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                }
+        
+                .lab-link:hover {
+                    color: var(--primary-color);
+                }
+        
+                @media (max-width: 768px) {
+                    .about-paragraph {
+                        font-size: 1rem;
+                        line-height: 1.6;
+                    }
+                    
+                    .intro-line {
+                        font-size: 1.2rem;
+                    }
+                }
+            </style>
         </section>
         <section id="skills" class="section">
             <h2 class="section-title">Skills</h2>
             
-            <section id="skills" class="section">
-                <h2 class="section-title">Technical Skills</h2>
+            
                 
                 <div class="skills-container">
                     <div class="skills-category">
