@@ -1,0 +1,6 @@
+/**
+ * ESP - RTBHouse
+ * @version v1.2.6
+ * @link https://www.rtbhouse.com/
+ */
+!function(){const e=async()=>{var e=window.localStorage.getItem("rtbhouse-esp"),s=window.localStorage.getItem("rtbhouse-segments");let o;pbjs?.getUserIds&&(o=pbjs?.getUserIds()?.pubcid),signal_decrypted={domain:encodeURIComponent(window.location.href)},e&&(signal_decrypted["rtbhouse-esp"]=e),o&&(signal_decrypted.EID=o),"browsingTopics"in document&&document.featurePolicy.allowsFeature("browsing-topics")&&(e=await document.browsingTopics(),signal_decrypted.topics=JSON.stringify(e)),s&&(signal_decrypted.segments=s),document.referrer&&(signal_decrypted.referrer=encodeURIComponent(document.referrer));e=signal_decrypted;s=await(await(await fetch("https://esp.rtbhouse.com/encrypt",{method:"POST",body:JSON.stringify({publisher_id:"rtbhouse",signal:e}),headers:{"Content-Type":"text/plain"}})).json()).message;return Promise.resolve(s)};new class{constructor(e){Object.assign(this,e)}send_signal(){window.googletag.secureSignalProviders||(window.googletag.secureSignalProviders=[]),null!=googletag.secureSignalProviders&&googletag.secureSignalProviders.push({id:"rtbhouse",collectorFunction:e})}}({send_cookie:!0}).send_signal()}();
